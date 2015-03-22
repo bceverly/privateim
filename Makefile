@@ -1,16 +1,10 @@
-#CFLAGS = -I ./include
-#OBJ_DIR = ./obj
-#SRC_DIR = ./src
-#
-#$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-#	$(CC) -c -o $@ $< $(CFLAGS)
-#
-#privateim: $(OBJ_DIR)/privateim.o $(OBJ_DIR)/helpers.o
-#	$(CC) -o $@ $<
+ifeq ($(.CURDIR),)
+	.CURDIR = .
+endif
 
-INC_DIR = ./include
-OBJ_DIR = ./obj
-SRC_DIR = ./src
+INC_DIR = $(.CURDIR)/include
+OBJ_DIR = $(.CURDIR)/obj
+SRC_DIR = $(.CURDIR)/src
 
 CFLAGS = -I $(INC_DIR)
 
