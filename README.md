@@ -1,5 +1,3 @@
-0123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789
-
 PrivateIM
 
 This command-line tool allows interactive private communication between two 
