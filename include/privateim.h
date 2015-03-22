@@ -1,1 +1,5 @@
-#define PRIVATEIM_VERSION 1
+#ifndef PRIVATEIM_H
+
+#define PRIVATEIM_H 1
+
+#endif
