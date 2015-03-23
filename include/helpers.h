@@ -12,6 +12,4 @@ size_t strlcat(char *dst, const char *src, size_t dstsize);
 
 #endif
 
-int parse_command_line(int argc, char **argv, char *ip_address, char *port_num);
-
 #endif

@@ -8,7 +8,7 @@ SRC_DIR = $(.CURDIR)/src
 
 CFLAGS = -I $(INC_DIR)
 
-OBJS = $(OBJ_DIR)/privateim.o $(OBJ_DIR)/helpers.o
+OBJS = $(OBJ_DIR)/privateim.o $(OBJ_DIR)/helpers.o $(OBJ_DIR)/cmdparse.o
 
 $(.CURDIR)/privateim: $(OBJS)
 	$(CC) -o $(.CURDIR)/privateim $(OBJS) $(CFLAGS)
@@ -18,6 +18,9 @@ $(OBJ_DIR)/privateim.o: $(SRC_DIR)/privateim.c $(INC_DIR)/privateim.h
 
 $(OBJ_DIR)/helpers.o: $(SRC_DIR)/helpers.c $(INC_DIR)/helpers.h
 	$(CC) -c -o $(OBJ_DIR)/helpers.o $(SRC_DIR)/helpers.c $(CFLAGS)
+
+$(OBJ_DIR)/cmdparse.o: $(SRC_DIR)/cmdparse.c $(INC_DIR)/cmdparse.h
+	$(CC) -c -o $(OBJ_DIR)/cmdparse.o $(SRC_DIR)/cmdparse.c $(CFLAGS)
 
 clean:
 	rm -f $(OBJ_DIR)/*.o $(.CURDIR)/privateim

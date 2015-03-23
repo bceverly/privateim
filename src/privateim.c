@@ -1,5 +1,6 @@
 #include "privateim.h"
 #include "helpers.h"
+#include "cmdparse.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,16 +8,15 @@
 #include <ctype.h>
 
 int main(int argc, char *argv[]) {
-	char ip_address[MAX_STRING_SIZE + 1];
-	char port_num[MAX_STRING_SIZE + 1];
 	int ret = 0;
+	int port_num = 0;
+	char ip_address[MAX_STRING_SIZE + 1];
 
-	ret = parse_command_line(argc, argv, ip_address, port_num);
-	if (ret != 0) {
-		return ret;
+	if (!parse_command_line(argc, argv, ip_address, &port_num)) {
+		return -1;
 	}
 
-	printf("ip_address = %s, port_num = %s\n", ip_address, port_num);
+	printf("ip_address = %s, port_num = %d\n", ip_address, port_num);
 
 	return 0;
 }
