@@ -50,7 +50,6 @@ bool validate_ip_address(char *ip_address) {
 	if (num_dots == 3) {
 		tuple[num_dots] = atoi(dot_pointer);
 		for (i=0 ; i<=3 ; i++) {
-			printf("tuple[%d] = %d\n", i, tuple[i]);
 			if ((tuple[i] < 0) || (tuple[i] > 255)) {
 				return false;
 			}
