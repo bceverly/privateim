@@ -101,8 +101,14 @@ int main(int argc, char *argv[]) {
       close(SocketFD);
       exit(EXIT_FAILURE);
     }
+
+    char inputBuffer[MAX_STRING_SIZE + 1];
+    printf("Type something: ");
+    fgets(inputBuffer, MAX_STRING_SIZE, stdin);
+    inputBuffer[MAX_STRING_SIZE] = 0x00;
+    trim_str(inputBuffer, MAX_STRING_SIZE);
  
-    write(SocketFD, "Hello", 7);
+    write(SocketFD, inputBuffer, strlen(inputBuffer));
  
     (void) shutdown(SocketFD, SHUT_RDWR);
  
@@ -112,5 +118,5 @@ int main(int argc, char *argv[]) {
 
 	printf("ip_address = %s, port_num = %d\n", ip_address, port_num);
 
-	return 0;
+	exit(EXIT_SUCCESS);
 }
